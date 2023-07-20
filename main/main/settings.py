@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'rest_framework',
     # User Apps
     "profiles.apps.ProfilesConfig",
+    "images.apps.ImagesConfig",
     # Third-party Libraries
     'corsheaders',
     'rosetta'

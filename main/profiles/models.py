@@ -9,7 +9,7 @@ class Profile(models.Model):
     date_of_birth = models.DateField(blank=True, verbose_name=_('date of birth'), null=True)
 
     def __str__(self):
-        return self.user
+        return self.user.username
     
 
 class PhoneNumber(models.Model):
@@ -20,7 +20,7 @@ class PhoneNumber(models.Model):
         ('emergency', _('Emergency')),
     )
     phone_line = models.CharField(max_length=25, choices=PHONELINE_CHOICES, default="Mobile", verbose_name=_('Name'))
-    phone_number = models.IntegerField(max_length=15, default="Mobile", verbose_name=_('Phone Number'))
+    phone_number = models.IntegerField(blank=True, null=True, verbose_name=_('Phone Number'))
     profile = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.CASCADE)
     updated_date = models.DateTimeField(auto_now=True, verbose_name=_('Updated Date'))
 
