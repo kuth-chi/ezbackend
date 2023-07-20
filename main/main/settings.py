@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     # User Apps
     "profiles.apps.ProfilesConfig",
     "images.apps.ImagesConfig",
+    "services.apps.ServicesConfig",
     # Third-party Libraries
     'corsheaders',
     'rosetta'
