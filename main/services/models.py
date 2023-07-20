@@ -12,3 +12,11 @@ class Service(models.Model):
 
     def __str__(self):
         return self.title
+    
+class ProductImage(models.Model):
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField(upload_to="products/images/", help_text=_("Upload product image"), verbose_name=_("Image"))
+    created_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.product.title} - Image {self.id}"
