@@ -14,6 +14,7 @@ class Service(models.Model):
     edited_at = models.DateTimeField(auto_now=True, verbose_name="Edited At")
     slug = models.SlugField(unique=True, blank=True, null=True, help_text=_("Slug for the service"))
 
+
     def generate_slug(self):
             if not self.slug:
                 # random_chars = ''.join(random.choices(string.ascii_letters + string.digits, k=24))
@@ -24,7 +25,7 @@ class Service(models.Model):
                 while Service.objects.filter(slug=candidate_slug).exists():
                     # random_chars = ''.join(random.choices(string.ascii_letters + string.digits, k=24))
                     unique_id = str(uuid.uuid4())[:24]
-                    candidate_slug = slugify(self.title + unique_id)
+                    candidate_slug = slugify(self.title + "-" + unique_id)
 
                 self.slug = candidate_slug
 
@@ -35,12 +36,6 @@ class Service(models.Model):
     def __str__(self):
         return self.title
     
-    # Delete file from Storage
-    def delete(self, *args, **kwargs):
-        # Delete the image from the filesystem when the ServiceImage instance is deleted
-        default_storage.delete(self.image.path)
-        # Call the base class delete method to perform the actual deletion of the ServiceImage instance
-        super(ServiceImage, self).delete(*args, **kwargs)
     
 
 # Image for service    
@@ -58,7 +53,7 @@ class ServiceImage(models.Model):
         default_storage.delete(self.image.path)
         # Call the base class delete method to perform the actual deletion of the ServiceImage instance
         super(ServiceImage, self).delete(*args, **kwargs)
-        
+
     
 class ServicePrice(models.Model):
     service = models.OneToOneField(Service, on_delete=models.CASCADE, related_name='service_price')
