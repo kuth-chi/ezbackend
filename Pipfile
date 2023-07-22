@@ -29,6 +29,7 @@ pyyaml = "*"
 requests = "*"
 django-oauth-toolkit = "*"
 django-redis = "*"
+pygments = "*"
 
 [dev-packages]
 

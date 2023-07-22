@@ -7,6 +7,17 @@ from .models import Service
 from .serializers import ServiceDetailSerializer, ServicesSerializer
 
 
+
+# Create a service
+@api_view(['POST'])
+def create_service(request):
+    serializer = ServiceDetailSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 # Get all services.
 @api_view(['GET'])
 def get_services(request):

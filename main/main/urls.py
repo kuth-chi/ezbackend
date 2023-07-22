@@ -10,6 +10,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('profiles.urls')),
     path('', include('services.urls')),
+    path('', include('blogs.urls')),
 ]
 
 # Rosetta URLs 
