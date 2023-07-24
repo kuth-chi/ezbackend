@@ -11,6 +11,7 @@ urlpatterns = [
     path('', include('profiles.urls')),
     path('', include('services.urls')),
     path('', include('blogs.urls')),
+    path('', include('products.urls')),
 ]
 
 # Rosetta URLs 
