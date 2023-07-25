@@ -4,14 +4,18 @@
     {
       "src": "main/wsgi.py",
       "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "runtime": "python3.11" }
-  }
-],
+      "config": {
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.9"
+      },
+      "buildCommand": "main/build_files.sh"  
+    }
+  ],
   "routes": [
-      {
-          "src": "/(.*)",
-          "dest": "main/wsgi.py"
-      }
+    {
+      "src": "/(.*)",
+      "dest": "main/wsgi.py"
+    }
   ],
   "root": "./ezbackend/main"
 }
