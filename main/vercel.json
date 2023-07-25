@@ -21,8 +21,6 @@
       "dest": "main/wsgi.py"
     }
   ],
-  "root": "./ezbackend/main",
-  
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "root": "./main"
   
 }
