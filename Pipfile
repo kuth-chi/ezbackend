@@ -30,6 +30,7 @@ requests = "*"
 django-oauth-toolkit = "*"
 django-redis = "*"
 pygments = "*"
+whitenoise = "*"
 
 [dev-packages]
 
