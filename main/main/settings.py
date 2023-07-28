@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "services.apps.ServicesConfig",
     "blogs.apps.BlogsConfig",
     "products.apps.ProductsConfig",
+    "layout.apps.LayoutConfig",
     # Third-party Libraries
     'corsheaders',
     'rosetta'
