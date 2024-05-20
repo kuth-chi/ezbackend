@@ -7,6 +7,12 @@ gh repo clone ez-startup/ezbackend
 Make sure the directory is empty. 
 
 ## Create Python Virtualenv for development
+Install VirtualEnv
+```powershell
+pip install virtualenv
+python3 -m virtualenv .venv
+source .venv/bin/activate
+```
 To install all dependencies from requirements.txt file.
 ```powershell
 pip install -r requirements.txt
